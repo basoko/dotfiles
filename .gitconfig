@@ -1,0 +1,20 @@
+[user]
+	name = David Basoko
+	email = basoko@gmail.com
+
+[core]
+	editor = emacs
+	excludesfile = ~/.global-gitignore
+
+[alias]
+  co   = checkout
+  ci   = commit
+  st   = status
+  br   = branch
+  type = cat-file -t
+  dump = cat-file -p
+  fp   = format-patch --stdout
+  hist  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[color]
+  ui = auto
