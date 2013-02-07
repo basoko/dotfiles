@@ -1,5 +1,3 @@
-(server-start)
-
 ;; Fullscreen (F11)
 (defun toggle-fullscreen ()
   "Toggle full screen on X11"

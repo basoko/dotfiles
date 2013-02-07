@@ -9,7 +9,10 @@ export EDITOR='emacs'
 # AUTOCOMPLETION (bash-comletion)
 # enable bash completion in interactive shells
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+  . /etc/bash_completion
+elif [ -f /usr/share/git/completion/git-completion.bash ]; then # Archlinux
+  . /usr/share/git/completion/git-completion.bash
+  . /usr/share/git/completion/git-prompt.sh
 fi
 
 # HISTORY
