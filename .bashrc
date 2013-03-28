@@ -5,15 +5,7 @@ PS1='\[\033[01;32m\]\u\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 " (%s)") \[\033[
 
 # EXPORTS
 export EDITOR='emacs'
-
-# AUTOCOMPLETION (bash-comletion)
-# enable bash completion in interactive shells
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-elif [ -f /usr/share/git/completion/git-completion.bash ]; then # Archlinux
-  . /usr/share/git/completion/git-completion.bash
-  . /usr/share/git/completion/git-prompt.sh
-fi
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 # HISTORY
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -42,3 +34,15 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 # pacman
 alias pacman='pacaur'
+
+# AUTOCOMPLETION (bash-comletion)
+# enable bash completion in interactive shells
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+elif [ -f /usr/share/git/completion/git-completion.bash ]; then # Archlinux
+  . /usr/share/git/completion/git-completion.bash
+  . /usr/share/git/completion/git-prompt.sh
+fi
+
+complete -cf sudo
+complete -cf man

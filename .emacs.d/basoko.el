@@ -29,7 +29,7 @@
 
 ;; Font and font size
 (condition-case nil
-    (set-default-font "DejaVu Sans Mono-10")(modify-frame-parameters nil '((wait-for-wm . nil)))
+    (set-default-font "DejaVu Sans Mono-9")(modify-frame-parameters nil '((wait-for-wm . nil)))
     (error (condition-case nil
                (set-default-font "Cousine")
              (error (condition-case nil
@@ -38,7 +38,7 @@
 
 
 ;; Solarized theme
-(load-theme 'solarized-dark t)
+(load-theme 'zenburn t)
 
 ;; Auto revert mode
 (global-auto-revert-mode t)
@@ -47,7 +47,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 ;; Trailing whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; case sensitivity is important when finding matches
 ;;(setq ac-ignore-case nil)
@@ -120,3 +120,22 @@
 (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 ;; Ido-mode ???
 (ido-mode t)
+
+;; Eclim
+;; (require 'eclim)
+;; (global-eclim-mode)
+
+;; (require 'eclimd)
+
+;; (setq help-at-pt-display-when-idle t)
+;; (setq help-at-pt-timer-delay 0.1)
+;; (help-at-pt-set-timer)
+
+;; ;; add the emacs-eclim source
+;; (require 'ac-emacs-eclim-source)
+;; (ac-emacs-eclim-config)
+
+;; ;(require 'company)
+;; ;(require 'company-emacs-eclim)
+;; ;(company-emacs-eclim-setup)
+;; ;(global-company-mode t)

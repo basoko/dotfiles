@@ -31,6 +31,7 @@
                       flymake-jshint
                       flymake-coffee
                       coffee-mode
+                      zenburn-theme
                       solarized-theme)
   "A list of packages to ensure are installed at launch.")
 
