@@ -27,7 +27,7 @@ alias mkdir='mkdir -p -v'
 # safety features
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
+alias rm='rm -i'                    # 'rm -i' prompts for every file
 alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
