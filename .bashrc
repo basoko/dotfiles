@@ -46,3 +46,9 @@ fi
 
 complete -cf sudo
 complete -cf man
+
+# PATH
+RUBY_GEMS=~/.gem/ruby/2.0.0/bin
+if [ -d "$RUBY_GEMS" ]; then
+  PATH=$PATH:$RUBY_GEMS
+fi
