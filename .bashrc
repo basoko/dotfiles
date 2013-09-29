@@ -33,7 +33,7 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 # pacman
-alias pacman='pacaur'
+alias pacman='yaourt'
 
 # AUTOCOMPLETION (bash-comletion)
 # enable bash completion in interactive shells
