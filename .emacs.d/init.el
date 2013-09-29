@@ -1,13 +1,3 @@
-;;; Install these packages ;;;
-;; color-theme
-;; solarized-theme
-;; yasnippet
-;; auto-complete
-;; magit
-;; nav
-;; flymake
-;; flymake-cursor
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package repos
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -20,17 +10,9 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit
-                      starter-kit-bindings
-                      starter-kit-lisp
-                      starter-kit-js
+(defvar my-packages '(yasnippet
                       auto-complete
-                      yasnippet
-                      flymake
-                      flymake-cursor
-                      flymake-jshint
-                      flymake-coffee
-                      coffee-mode
+                      highlight-parentheses
                       zenburn-theme
                       solarized-theme)
   "A list of packages to ensure are installed at launch.")
@@ -38,3 +20,18 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Load my configuration file
+(load "~/.emacs.d/basoko.el")
