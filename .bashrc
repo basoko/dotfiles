@@ -3,10 +3,6 @@
 
 PS1='\[\033[01;32m\]\u\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 " (%s)") \[\033[01;34m\]$\[\033[00m\] '
 
-# EXPORTS
-export EDITOR='emacs'
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
-
 # HISTORY
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -47,8 +43,18 @@ fi
 complete -cf sudo
 complete -cf man
 
+# EXPORTS
+export EDITOR='emacs'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
 # PATH
 RUBY_GEMS=~/.gem/ruby/2.0.0/bin
 if [ -d "$RUBY_GEMS" ]; then
   PATH=$PATH:$RUBY_GEMS
+fi
+
+# GOLANG
+GO_HOME=~/go
+if [ -d "$GO_HOME" ]; then
+    export GOPATH=$GO_HOME
 fi
