@@ -65,6 +65,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GENERAL EDIT CONFIGURATION SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Backup files directory
+(setq backup-directory-alist `(("." . "~/emacs.d/.saves")))
+;; Disable backup files
+;;(setq make-backup-files nil)
+
 ;; Change TABS to 4 spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
