@@ -8,9 +8,10 @@
 
 case $1 in
 xmonad)
-	exec xmonad
-	;;
+  xsetroot -cursor_name left_ptr
+  exec xmonad
+  ;;
 kde|*)
-	exec startkde
-	;;
+  exec startkde
+  ;;
 esac
