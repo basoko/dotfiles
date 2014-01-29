@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
+import XMonad.Hooks.SetWMName
 
 myTerminal    = "urxvt"
 myModMask     = mod4Mask -- Win key or Super_L
@@ -12,7 +13,8 @@ myBorderWidth = 2
 main = do
    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
    xmonad $ defaultConfig
-     { manageHook = manageDocks <+> manageHook defaultConfig
+     { startupHook = setWMName "LG3D"
+       , manageHook = manageDocks <+> manageHook defaultConfig
        , layoutHook = avoidStruts  $  layoutHook defaultConfig
        , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
