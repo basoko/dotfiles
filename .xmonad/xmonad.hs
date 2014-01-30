@@ -11,7 +11,7 @@ myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 2
 
 main = do
-   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc.hs"
+   xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobarrc.hs"
    xmonad $ defaultConfig
      { startupHook = setWMName "LG3D"
        , manageHook = manageDocks <+> manageHook defaultConfig
