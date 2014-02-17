@@ -10,6 +10,7 @@ import Graphics.X11.ExtraTypes.XF86
 myTerminal    = "urxvt"
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 2
+myWorkspaces = ["1:term","2:web","3:devel","4:media","5:chat","6","7","8", "9"]
 
 main = do
    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobarrc.hs"
@@ -22,6 +23,7 @@ main = do
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
        , terminal    = myTerminal
+       , workspaces = myWorkspaces
        , modMask     = myModMask -- Rebind Mod to the Windows key
        , borderWidth = myBorderWidth
      }  `additionalKeys`
