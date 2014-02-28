@@ -29,6 +29,8 @@ main = do
      }  `additionalKeys`
          [
         ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
+      , ((mod4Mask .|. shiftMask, xK_e), spawn "setxkbmap -layout en_US")
+      , ((mod4Mask .|. shiftMask, xK_s), spawn "setxkbmap -layout es")
       -- Media Keys
       , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 2-")
       , ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 2+")
