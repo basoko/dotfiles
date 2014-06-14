@@ -48,7 +48,7 @@ export EDITOR='emacs'
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 # PATH
-RUBY_GEMS=~/.gem/ruby/2.0.0/bin
+RUBY_GEMS=~/.gem/ruby/2.1.0/bin
 if [ -d "$RUBY_GEMS" ]; then
   PATH=$PATH:$RUBY_GEMS
 fi
