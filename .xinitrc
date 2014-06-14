@@ -7,7 +7,8 @@
 #
 
 case $1 in
-xmonad)
+xmonad|*)
+  [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
   xsetroot -cursor_name left_ptr
   # Set up an icon tray
   trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x191970 --height 12 &
@@ -18,7 +19,7 @@ xmonad)
   xset s 3600 3600
   exec xmonad
   ;;
-kde|*)
+kde)
   exec startkde
   ;;
 esac
