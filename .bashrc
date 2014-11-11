@@ -30,6 +30,8 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 # pacman
 alias pacman='yaourt'
+#emacs
+alias emacs='emacsclient -c '
 
 # AUTOCOMPLETION (bash-comletion)
 # enable bash completion in interactive shells
@@ -58,3 +60,5 @@ GO_HOME=~/go
 if [ -d "$GO_HOME" ]; then
     export GOPATH=$GO_HOME
 fi
+
+export PATH=${PATH}:$HOME/bin/adt-bundle-linux-x86_64-20140321/sdk/tools:$HOME/bin/adt-bundle-linux-x86_64-20140321/sdk/platform-tools

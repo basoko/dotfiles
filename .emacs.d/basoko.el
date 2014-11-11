@@ -18,7 +18,7 @@
 	    		 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
        (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
 	    		 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
-(maximize)
+;; (maximize)
 
 ;; Use the filename for the frame title
 (when window-system
@@ -58,6 +58,8 @@
              (error (condition-case nil
                         (set-default-font "Monaco")
                       (error nil))))))
+;; Emacs daemon
+(setq default-frame-alist '((font . "DejaVu Sans Mono-9")))
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; END DISPLAY SECTION ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
