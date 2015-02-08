@@ -56,9 +56,13 @@ if [ -d "$RUBY_GEMS" ]; then
 fi
 
 # GOLANG
-GO_HOME=~/go
-if [ -d "$GO_HOME" ]; then
-    export GOPATH=$GO_HOME
+GOROOT=$HOME/opt/go
+if [ -d "$GOROOT" ]; then
+    export PATH=$PATH:$GOROOT/bin
+    export GOPATH=$HOME/src/go
 fi
 
-export PATH=${PATH}:$HOME/bin/adt-bundle-linux-x86_64-20140321/sdk/tools:$HOME/bin/adt-bundle-linux-x86_64-20140321/sdk/platform-tools
+# Use bash_local if it exists
+if [ -f ~/.bash_local ]; then
+. ~/.bash_local
+fi
