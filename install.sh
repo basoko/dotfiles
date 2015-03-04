@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cwd=$(dirname "$0")
+cwd=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 me=$(basename $0)
 
 exclusions=("$me" ".git" ".gitignore" "README.md")
@@ -16,7 +16,7 @@ link_all() {
         local name=$(basename $file)
 
         if [[ ${exclusions[*]} =~ $name ]] ; then echo "Skip exclusion: $name" ; continue ; fi
-        link $(readlink -f $name) $HOME/$name
+        link $(readlink -f $file) $HOME/$name
     done
 }
 
