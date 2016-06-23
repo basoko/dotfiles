@@ -1,0 +1,18 @@
+# ls
+alias ls='ls --color=auto'
+# modified commands
+alias diff='colordiff'              # requires colordiff package
+alias grep='grep --color=auto'
+alias mkdir='mkdir -p -v'
+# safety features
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'                    # 'rm -i' prompts for every file
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+# pacman
+alias pacman='yaourt'
+#emacs
+alias emacs='emacsclient -c '
