@@ -1,37 +1,100 @@
-;; Package repos
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
+;; https://github.com/jhamrick/emacs
+
+;; path where settings files are kept
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
 
-;; Detect requiered packages and install them
-(when (not package-archive-contents)
-  (package-refresh-contents))
+(add-to-list 'load-path "~/.emacs.d/settings")
+;; path to where plugins are kept
+(setq plugin-path "~/.emacs.d/el-get/")
 
-;; Add in your own as you wish:
-(defvar my-packages '(yasnippet
-                      auto-complete
-                      highlight-parentheses
-                      zenburn-theme
-                      solarized-theme)
-  "A list of packages to ensure are installed at launch.")
+;; define various custom functions
+(require 'custom-functions)
 
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; configure general settings
+(require 'general-settings)
 
-;; Load my configuration file
-(load "~/.emacs.d/basoko.el")
+;; install dependencies with el-get
+(require 'el-get-settings)
+
+;---------------;
+;;; Utilities ;;;
+;---------------;
+
+;; Git
+(include-plugin "magit")
+(require 'magit)
+
+;; Popup
+(include-elget-plugin "popup")
+(require 'popup)
+
+;; yasnippet
+(require 'yasnippet-settings)
+
+;; Auto complete
+(require 'auto-complete-settings)
+
+;; Camelcase functions
+(require 'camelcase-settings)
+
+;; Helm
+(require 'helm-settings)
+
+
+;-----------;
+;;; Modes ;;;
+;-----------;
+
+;; Ido mode
+(require 'ido)
+(ido-mode 1)
+
+;; MuMaMo
+;(require 'mumamo-settings)
+
+;; Markdown mode
+(require 'markdown-settings)
+
+;; elpy
+(require 'python-settings)
+
+;; LaTeX and Auctex
+(require 'latex-settings)
+
+;; SCSS Mode
+(require 'scss-settings)
+
+;; Matlab mode
+(require 'matlab-settings)
+
+;; Javascript
+(require 'js-settings)
+
+;; YAML mode
+(require 'yaml-settings)
+
+;; Nyancat mode!
+;;(nyan-mode 1)
+
+;---------------------------------------------------------------------
+;; Put auto 'custom' changes in a separate file (this is stuff like
+;; custom-set-faces and custom-set-variables)
+(load 
+ (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
+ 'noerror)
+
+
+
+
+
+
+
+
+
