@@ -1,4 +1,5 @@
 Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , overrideRedirect = True
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW L 90
