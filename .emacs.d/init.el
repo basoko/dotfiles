@@ -80,6 +80,7 @@
 ;; YAML mode
 (require 'yaml-settings)
 
+
 ;; Nyancat mode!
 ;;(nyan-mode 1)
 
@@ -89,12 +90,4 @@
 (load 
  (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
  'noerror)
-
-
-
-
-
-
-
-
 

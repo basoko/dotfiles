@@ -1,0 +1,6 @@
+#key : debug
+#name : Inserts a debug statement
+#contributor: David Basoco <basoko@gmail.com>
+#key: dd
+# --
+import pdb;pdb.set_trace()

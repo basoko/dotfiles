@@ -1,4 +1,3 @@
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -17,7 +16,7 @@
 (require 'faces)
 (if (system-is-mac)
     (set-face-attribute 'default nil
-			:foundry "apple" 
+			:foundry "apple"
 			:family "DejaVu_Sans_Mono"))
 
 (custom-set-faces
@@ -25,7 +24,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#002b35" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :family "Ubuntu Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b35" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 128 :width normal :foundry "1ASC" :family "Liberation Mono"))))
  '(ein:cell-input-area ((t (:background "#042028"))))
  '(ein:cell-input-prompt ((t (:inherit header-line :background "#002b35" :foreground "#859900" :inverse-video nil :weight bold))))
  '(ein:cell-output-prompt ((t (:inherit header-line :background "#002b35" :foreground "#dc322f" :inverse-video nil :weight bold))))
@@ -46,3 +45,15 @@
  '(mumamo-background-chunk-major ((t (:background "#002b36"))))
  '(py-variable-name-face ((t (:inherit default :foreground "#268bd2")))))
 
+;; Remove trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Shortcuts
+;; rgrep
+(global-set-key (kbd "C-c s") 'rgrep)
+
+;; goto line
+(global-set-key (kbd "C-c C-g") 'goto-line)
+
+;; undo/redo
+(global-set-key (kbd "C-z") 'undo)
