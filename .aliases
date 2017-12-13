@@ -16,3 +16,5 @@ alias chgrp='chgrp --preserve-root'
 alias pacman='yaourt'
 #emacs
 alias emacs='emacsclient -c '
+
+alias v='vagrant'
