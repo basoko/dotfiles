@@ -56,6 +56,7 @@ ZSH_THEME="robbyrussell"
 
 # Tmux plugin
 ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOCONNECT=false
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -106,4 +107,17 @@ source ~/.aliases
 #   ssh-add
 # fi
 
+zstyle :omz:plugins:ssh-agent identities rollbar_id_rsa
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+export ANDROID_HOME=$HOME/Android/Sdk/
+
+export PATH=$PATH:$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+export JDK7_HOME=$HOME/opt/jdk1.7.0_80
+
+export DESKTOP_SESSION=LXDE
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/basoko/.sdkman"
+[[ -s "/home/basoko/.sdkman/bin/sdkman-init.sh" ]] && source "/home/basoko/.sdkman/bin/sdkman-init.sh"
