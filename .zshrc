@@ -58,6 +58,9 @@ ZSH_THEME="robbyrussell"
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=false
 
+zstyle :omz:plugins:ssh-agent identities basoko_id_rsa rollbar_id_rsa
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -89,7 +92,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/id_rsa"
+#export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -106,9 +109,6 @@ source ~/.aliases
 #   eval `ssh-agent -s`
 #   ssh-add
 # fi
-
-zstyle :omz:plugins:ssh-agent identities rollbar_id_rsa
-zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 export ANDROID_HOME=$HOME/Android/Sdk/
 
