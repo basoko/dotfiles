@@ -6,6 +6,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import XMonad.Hooks.SetWMName
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Hooks.ManageHelpers (isFullscreen, isDialog,  doFullFloat, doCenterFloat)
 import Data.List
 
 myTerminal    = "urxvt"
@@ -21,7 +22,7 @@ main = do
    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobarrc.hs"
    xmonad $ defaultConfig
      { startupHook = setWMName "LG3D"
-       , manageHook = manageDocks <+> manageHook defaultConfig
+       , manageHook = ( isFullscreen --> doFullFloat ) <+> manageDocks <+> manageHook defaultConfig
        , layoutHook = avoidStruts  $  layoutHook defaultConfig
        , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
