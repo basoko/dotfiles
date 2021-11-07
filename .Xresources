@@ -2,15 +2,38 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintlight
 Xft.rgba: rgb
-URxvt.font: xft:DejaVu Sans Mono-11
+
+!Font
+!urxvt.font: xft:Terminus:size=12,xft:Inconsolata\ for\ Powerline:size=12
+URxvt.font: xft:Deja Vu Sans Mono:size=11
+
+!URxvt.font: xft:inconsolata:pixelsize=17
+!URxvt.font: xft:DejaVu Sans Mono-11
+
+!Perl extensions folder
+!URxvt.perl-lib: $HOME/.urxvt/ext/
+!Disable iso default bindings so Ctrl+Shift worsk
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.perl-ext-common: default,resize-font,matcher,selection-to-clipboard
+!URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+!Resize fonts
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.resize-font.step: 2
+
+
+!URxvt.font: xft:Fantasque Sans Mono:size=12,\
+!            xft:DejaVu Sans Mono,\
+!            xft:IPAGothic
+
+!URxvt.resize-font.smaller: C-j
+!URxvt.resize-font.bigger:  C-k
+
 URxvt.letterSpace: -1
 URxvt.background: [95]#000000
 !Name to avoit some apps errors
 URxvt*termName: rxvt
-
-!Clickable URLs y tabs
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard
-
 !Clickable URLs
 URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.matcher.button: 1

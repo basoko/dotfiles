@@ -13,11 +13,12 @@
     (eval-print-last-sexp)))
 
 ; packages to install
-(setq 
+(setq
  my-packages '(auctex
                auto-complete
-               color-theme-solarized
+               solarized-emacs
                material-theme
+               projectile
                ein
                magit
                markdown-mode
@@ -35,7 +36,14 @@
                js2-mode
                yasnippet
                yaml-mode
-               ))   
+               editorconfig
+               terraform-mode
+               rust-mode
+               protobuf-mode
+               go-mode
+               go-autocomplete
+               go-projectile
+               ))
 
 ; first enable shallow clone, so we don't need to clone the entire
 ; history of every project
@@ -45,4 +53,3 @@
 (el-get 'sync my-packages)
 
 (provide 'el-get-settings)
-

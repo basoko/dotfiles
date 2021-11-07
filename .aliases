@@ -18,3 +18,11 @@ alias pacman='yaourt'
 alias emacs='emacsclient -c '
 
 alias v='vagrant'
+alias dc='~/opt/docker/docker-compose'
+
+# Kubernetes
+alias kube-current='kubectl config current-context'
+alias kube-staging='kubectl config use-context gke_rollbar-staging_us-central1_compute'
+alias kube-prod='kubectl config use-context gke_rollbar-prod_us-central1_compute'
+
+alias signal='signal-desktop --no-sandbox > /dev/null &'

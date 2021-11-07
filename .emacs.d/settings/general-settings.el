@@ -9,7 +9,7 @@
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo -n $PATH'")))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
- 
+
 (if window-system (set-exec-path-from-shell-PATH))
 
 ; language
@@ -33,7 +33,7 @@
 (if (system-is-mac)
     (setq ns-command-modifier 'meta))
 
-; number of characters until the fill column 
+; number of characters until the fill column
 (setq-default fill-column 70)
 
 ; each line of text gets one line on the screen (i.e., text will run
@@ -63,14 +63,15 @@
 
 ; always use spaces, not tabs, when indenting
 (setq-default indent-tabs-mode nil)
+
 ; indentation styles
-(setq c-basic-offset 8)
+(setq c-basic-offset 2)
 (setq c-default-style (quote (
-    (c-mode . "bsd") 
-    (java-mode . "java") 
-    (awk-mode . "awk") 
+    (c-mode . "bsd")
+    (java-mode . "java")
+    (awk-mode . "awk")
     (other . "gnu"))))
- 
+
 ; ignore case when searching
 (setq-default case-fold-search 1)
 

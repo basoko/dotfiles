@@ -55,7 +55,7 @@ ZSH_THEME="robbyrussell"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Tmux plugin
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOCONNECT=false
 
 zstyle :omz:plugins:ssh-agent identities basoko_id_rsa rollbar_id_rsa
@@ -112,7 +112,7 @@ source ~/.aliases
 
 export ANDROID_HOME=$HOME/Android/Sdk/
 
-export PATH=$PATH:$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/
 
 export JDK7_HOME=$HOME/opt/jdk1.7.0_80
 
@@ -121,3 +121,32 @@ export DESKTOP_SESSION=LXDE
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/basoko/.sdkman"
 [[ -s "/home/basoko/.sdkman/bin/sdkman-init.sh" ]] && source "/home/basoko/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/basoko/google-cloud-sdk/path.zsh.inc' ]; then . '/home/basoko/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/basoko/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/basoko/google-cloud-sdk/completion.zsh.inc'; fi
+
+# GO
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
+export GOPRIVATE=github.com/basoko
+
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# added by travis gem
+[ -f /home/basoko/.travis/travis.sh ] && source /home/basoko/.travis/travis.sh
+
+
+# Garden
+PATH=$PATH:$HOME/.garden/bin

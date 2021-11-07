@@ -14,6 +14,8 @@ myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 2
 myWorkspaces = ["1:term","2:web","3:devel","4:media","5:chat","6","7","8", "9"]
 
+xF86XK_AudioMicMute = 0x1008FFB2
+
 -- IntelliJ popup fix from http://youtrack.jetbrains.com/issue/IDEA-74679#comment=27-417315
 (~=?) :: Eq a => Query [a] -> [a] -> Query Bool
 q ~=? x = fmap (isInfixOf x) q
@@ -38,9 +40,10 @@ main = do
       , ((mod4Mask .|. shiftMask, xK_e), spawn "setxkbmap -layout en_US")
       , ((mod4Mask .|. shiftMask, xK_s), spawn "setxkbmap -layout es")
       -- Media Keys
-      , ((0, xF86XK_AudioRaiseVolume   ), spawn "pactl set-sink-volume 0 +1.5%")
-      , ((0, xF86XK_AudioLowerVolume   ), spawn "pactl set-sink-volume 0 -1.5%")
-      , ((0, xF86XK_AudioMute          ), spawn "pactl set-sink-mute 0 toggle")
+      , ((0, xF86XK_AudioRaiseVolume   ), spawn "SINK=$(pacmd list-sinks | grep 'index:' | cut -b12-) && pactl set-sink-volume $SINK +1.5%")
+      , ((0, xF86XK_AudioLowerVolume   ), spawn "SINK=$(pacmd list-sinks | grep 'index:' | cut -b12-) && pactl set-sink-volume $SINK -1.5%")
+      , ((0, xF86XK_AudioMute          ), spawn "SINK=$(pacmd list-sinks | grep 'index:' | cut -b12-) && pactl set-sink-mute $SINK toggle")
+      , ((0, xF86XK_AudioMicMute       ), spawn "pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle")
       , ((0, xF86XK_MonBrightnessUp    ), spawn "xbacklight -inc 5")
       , ((0, xF86XK_MonBrightnessDown  ), spawn "xbacklight -dec 5")
       -- Spotify

@@ -11,6 +11,7 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/settings")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; path to where plugins are kept
 (setq plugin-path "~/.emacs.d/el-get/")
 
@@ -45,8 +46,10 @@
 (require 'camelcase-settings)
 
 ;; Helm
-(require 'helm-settings)
+;(require 'helm-settings)
 
+;; Editor config
+(require 'editorconfig-settings)
 
 ;-----------;
 ;;; Modes ;;;
@@ -58,6 +61,8 @@
 
 ;; MuMaMo
 ;(require 'mumamo-settings)
+
+(require 'projectile-settings)
 
 ;; Markdown mode
 (require 'markdown-settings)
@@ -80,6 +85,17 @@
 ;; YAML mode
 (require 'yaml-settings)
 
+;; terraform mode
+(require 'terraform-settings)
+
+;; html
+(require 'html-settings)
+
+;; html
+(require 'magit-settings)
+
+;; go
+(require 'go-settings)
 
 ;; Nyancat mode!
 ;;(nyan-mode 1)
@@ -87,7 +103,6 @@
 ;---------------------------------------------------------------------
 ;; Put auto 'custom' changes in a separate file (this is stuff like
 ;; custom-set-faces and custom-set-variables)
-(load 
+(load
  (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
  'noerror)
-

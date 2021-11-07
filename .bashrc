@@ -50,3 +50,6 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/basoko/.sdkman"
 [[ -s "/home/basoko/.sdkman/bin/sdkman-init.sh" ]] && source "/home/basoko/.sdkman/bin/sdkman-init.sh"
+
+# added by travis gem
+[ -f /home/basoko/.travis/travis.sh ] && source /home/basoko/.travis/travis.sh
