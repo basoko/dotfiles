@@ -58,7 +58,7 @@ ZSH_THEME="robbyrussell"
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOCONNECT=false
 
-zstyle :omz:plugins:ssh-agent identities basoko_id_rsa rollbar_id_rsa
+zstyle :omz:plugins:ssh-agent identities basoko_id_rsa
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
