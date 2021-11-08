@@ -1,19 +1,36 @@
+;; Set path to load settings files
+(add-to-list 'load-path "~/.emacs.d/settings")
 
-;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
-;; https://github.com/jhamrick/emacs
+;; Put auto 'custom' changes in a separate file (this is stuff like
+;; custom-set-faces and custom-set-variables)
+(load
+ (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
+ 'noerror)
 
-;; path where settings files are kept
+;; Define and initialise package repositories
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/settings")
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-;; path to where plugins are kept
-(setq plugin-path "~/.emacs.d/el-get/")
+;; Define the packages to install
+(setq package-list '(
+                     use-package
+                     ))
+
+
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; use-package always ensure (auto-install packages)
+(setq use-package-always-ensure t)
 
 ;; define various custom functions
 (require 'custom-functions)
@@ -21,88 +38,38 @@
 ;; configure general settings
 (require 'general-settings)
 
-;; install dependencies with el-get
-(require 'el-get-settings)
-
-;---------------;
-;;; Utilities ;;;
-;---------------;
-
-;; Git
-(include-plugin "magit")
-(require 'magit)
-
-;; Popup
-(include-elget-plugin "popup")
-(require 'popup)
+;; auto-complete
+(require 'auto-complete-settings)
 
 ;; yasnippet
 (require 'yasnippet-settings)
 
-;; Auto complete
-(require 'auto-complete-settings)
+;; helm
+(require 'helm-settings)
 
-;; Camelcase functions
-(require 'camelcase-settings)
-
-;; Helm
-;(require 'helm-settings)
-
-;; Editor config
-(require 'editorconfig-settings)
-
-;-----------;
-;;; Modes ;;;
-;-----------;
-
-;; Ido mode
-(require 'ido)
-(ido-mode 1)
-
-;; MuMaMo
-;(require 'mumamo-settings)
-
-(require 'projectile-settings)
-
-;; Markdown mode
-(require 'markdown-settings)
-
-;; elpy
-(require 'python-settings)
-
-;; LaTeX and Auctex
-(require 'latex-settings)
-
-;; SCSS Mode
-(require 'scss-settings)
-
-;; Matlab mode
-(require 'matlab-settings)
-
-;; Javascript
-(require 'js-settings)
-
-;; YAML mode
-(require 'yaml-settings)
-
-;; terraform mode
-(require 'terraform-settings)
-
-;; html
-(require 'html-settings)
-
-;; html
+;; magit
 (require 'magit-settings)
 
-;; go
-(require 'go-settings)
+;; projectile
+(require 'projectile-settings)
 
-;; Nyancat mode!
-;;(nyan-mode 1)
+;; editorconfig
+(require 'editorconfig-settings)
 
-;---------------------------------------------------------------------
-;; Put auto 'custom' changes in a separate file (this is stuff like
-;; custom-set-faces and custom-set-variables)
-(load
- (setq custom-file (expand-file-name "settings/custom.el" user-emacs-directory))
- 'noerror)
+;; jetbrains darcula theme
+;;(require 'jetbrains-darcula-theme-settings)
+;; zenburn theme
+(require 'zenburn-theme-settings)
+
+;; python
+(require 'python-settings)
+
+;; python
+(require 'golang-settings)
+
+;; yaml
+(require 'yaml-settings)
+
+;; markdown
+(require 'markdown-settings)
+

@@ -1,16 +1,6 @@
-;-------------------;
-;;; Markdown mode ;;;
-;-------------------;
-
-(include-plugin "markdown-mode")
-(autoload 'markdown-mode "markdown-mode.el"
-  "Major mode for editing Markdown files" t)
-(setq auto-mode-alist
-      (append 
-       (list '("\\.text" . markdown-mode) 
-	     '("\\.md" . markdown-mode) 
-	     '("\\.markdown" . markdown-mode) 
-	     )
-       auto-mode-alist))
+(use-package markdown-mode
+  :mode (("\\.markdown$" . markdown-mode)
+         ("\\.md$" . markdown-mode))
+  :init (add-hook 'markdown-mode-hook 'auto-fill-mode))
 
 (provide 'markdown-settings)
